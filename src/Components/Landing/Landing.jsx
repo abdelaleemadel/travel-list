@@ -5,7 +5,10 @@ import PackingList from "./Sections/PackingList";
 import Stats from "./Sections/Stats";
 
 function Landing() {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(
+    JSON.parse(localStorage.getItem("items")) || []
+  );
+
   function handleAddItem(newItem) {
     newItem.description && setItems((items) => [...items, newItem]);
   }
@@ -25,6 +28,8 @@ function Landing() {
   function clearList() {
     setItems([]);
   }
+
+  localStorage.setItem("items", JSON.stringify(items));
 
   return (
     <>

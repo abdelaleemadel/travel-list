@@ -6,8 +6,8 @@ function PackingItem({ item, onPacking, onCancel }) {
       <li>
         <input
           type="checkbox"
-          value={item.packed}
-          onClick={() => {
+          checked={item.packed}
+          onChange={() => {
             onPacking(item.id);
           }}
         />
